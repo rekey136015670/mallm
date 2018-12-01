@@ -8,12 +8,15 @@ import router from './router/index'
 import './assets/css/index.css'
 import MyHttpServer from '../src/plugins/http'
 import moment from 'moment'
+import myBread from './components/package/myBread.vue'
 // 下面这个代码是自动就有的,开发的调试信息,生产环境中是否需要输出?
 Vue.config.productionTip = false
 // 使用vue的插件
 Vue.use(ElementUI)
 // 使用axios的插件,模仿饿了吗的插件引入方法
 Vue.use(MyHttpServer)
+// 全局注册面包屑
+Vue.component(myBread.name, myBread)
 // 全局定义过滤器
 Vue.filter('fmtDate', (v) => {
   return moment(v).format('YYYY-MM-DD')
