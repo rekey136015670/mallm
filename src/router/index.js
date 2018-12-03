@@ -5,7 +5,15 @@ import Home from '../components/home/home.vue'
 import User from '../components/user/user.vue'
 import Right from '../components/right/right.vue'
 import Role from '../components/role/role.vue'
-import { Message } from 'element-ui'
+import {
+  Message
+} from 'element-ui'
+import Goods from '../components/goods/goodslist.vue'
+import Goodsadd from '../components/goods/goodsadd.vue'
+import Params from '../components/goods/cateparams.vue'
+import Categories from '../components/goods/goodscate.vue'
+import Orders from '../components/order/order.vue'
+import Reports from '../components/report/report.vue'
 Vue.use(Router)
 const router = new Router({
   routes: [{
@@ -31,6 +39,30 @@ const router = new Router({
       name: 'roles',
       path: '/roles',
       component: Role
+    }, {
+      name: 'goods',
+      path: '/goods',
+      component: Goods
+    }, {
+      name: 'goodsadd',
+      path: '/goodsadd',
+      component: Goodsadd
+    }, {
+      name: 'params',
+      path: '/params',
+      component: Params
+    }, {
+      name: 'categories',
+      path: '/categories',
+      component: Categories
+    }, {
+      name: 'orders',
+      path: '/orders',
+      component: Orders
+    }, {
+      name: 'reports',
+      path: '/reports',
+      component: Reports
     }]
   }]
 })

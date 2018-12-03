@@ -21,7 +21,7 @@
     </el-header>
     <el-container>
         <el-aside class="aside" width="200px">
-            <el-menu :router="true" :unique-opened='true'  class="el-menu-vertical-demo">
+            <el-menu :router="true" :unique-opened='true' class="el-menu-vertical-demo">
                 <el-submenu :index="''+item1.order" v-for="(item1,i) in menus" :key="i">
                     <template slot="title">
                         <i class="el-icon-location"></i>
@@ -35,9 +35,6 @@
                     </el-menu-item>
                 </el-submenu>
 
-
-
-
             </el-menu>
         </el-aside>
         <el-main class="main">
@@ -49,44 +46,50 @@
 
 <script>
 export default {
-  data(){
-return {
-      menus: []
-    }
-  },
-      // beforeCreate(){
+    data() {
+        return {
+            menus: []
+        }
+    },
+    // beforeCreate(){
 
-      //   const token=localStorage.getItem('token')
-      //   console.log(token);
-      //   if(!token){
-      //       this.$router.push({name:'login'})
-      //   }
+    //   const token=localStorage.getItem('token')
+    //   console.log(token);
+    //   if(!token){
+    //       this.$router.push({name:'login'})
+    //   }
 
-      // },
-      created() {
-    this.getMenus()
-  },
-      methods:{
-        async getMenus(){
-const res = await this.$http.get(`menus`)
-      console.log(res)
-      this.menus = res.data.data
+    // },
+    created() {
+        this.getMenus()
+    },
+    methods: {
+        async getMenus() {
+            const res = await this.$http.get(`menus`)
+            // console.log(res)
+            this.menus = res.data.data
         },
-          logOut(){
-              sessionStorage.clear()
-              this.$router.push({name:'login'})
-              this.$message.success('退出成功')
-          },
-          showUser(){
-              this.$router.push({name:"user"})
-          },
-          showRightList(){
-            this.$router.push({name:"right"})
-          },
-          showRoleList(){
-            this.$router.push({name:"role"})
-          }
-      }
+        logOut() {
+            sessionStorage.clear()
+            this.$router.push({
+                name: 'login'
+            })
+            this.$message.success('退出成功')
+        },
+        // 因为用了element的aside插件，所以直接循环倒入数据之后，就不用下面这么写了
+        // showUser(){
+        //     this.$router.push({name:"user"})
+        // },
+        // showRightList(){
+        //   this.$router.push({name:"right"})
+        // },
+        // showRoleList(){
+        //   this.$router.push({name:"role"})
+        // },
+        // showGoodsList(){
+        //   this.$router.push({name:'goods'})
+        // }
+    }
 }
 </script>
 
